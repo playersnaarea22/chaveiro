@@ -264,16 +264,20 @@
             text-align: center;
         }
 
-        .plate-container {
-            perspective: 1000px;
-            margin-bottom: 40px;
-        }
+       .plate-container {
+    perspective: 1000px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
 
         .plate-preview {
     width: 450px;
     height: 150px;
-    aspect-ratio: 3 / 1;
-    max-width: 90vw;
     background: linear-gradient(145deg, #f8f8f8, #e0e0e0);
     border: 3px solid #000000;
     border-radius: 15px;
@@ -286,6 +290,7 @@
     transform-style: preserve-3d;
     transition: transform 0.6s ease;
     cursor: move;
+    transform-origin: center center;
 }
 
         .plate-preview:hover {
@@ -658,60 +663,27 @@
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-    .main-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .plate-preview {
-        width: 380px;
-    }
-    
-    .mercosul-band {
-        font-size: 0.75em;
+        @media (max-width: 500px) {
+    .plate-container {
+        transform: scale(0.7);
+        margin-bottom: 20px;
     }
 }
 
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 2.5rem;
-    }
-    
-    .plate-preview {
-        width: 320px;
-    }
-    
-    .mercosul-band {
-        font-size: 0.7em;
-    }
-    
-    .plate-text {
-        font-size: 2.4em;
-    }
-    
-    .emoji-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-    
-    .step-navigation {
-        flex-direction: column;
-    }
-
-    .progress-bar {
-        flex-wrap: wrap;
-        gap: 20px;
+@media (max-width: 400px) {
+    .plate-container {
+        transform: scale(0.6);
+        margin-bottom: 10px;
     }
 }
 
-@media (max-width: 480px) {
-    .plate-preview {
-        width: 280px;
-    }
-    
-    .plate-text {
-        font-size: 2em;
+@media (max-width: 350px) {
+    .plate-container {
+        transform: scale(0.55);
+        margin-bottom: 5px;
     }
 }
+
 
         #countryText {
             flex: 1;
