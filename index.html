@@ -270,84 +270,86 @@
         }
 
         .plate-preview {
-            width: 450px;
-            height: 150px;
-            background: linear-gradient(145deg, #f8f8f8, #e0e0e0);
-            border: 3px solid #000000;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 20px 40px rgba(0,0,0,0.3),
-                inset 0 2px 5px rgba(255,255,255,0.5),
-                inset 0 -2px 5px rgba(0,0,0,0.1);
-            transform-style: preserve-3d;
-            transition: transform 0.6s ease;
-            cursor: move;
-        }
+    width: 450px;
+    height: 150px;
+    aspect-ratio: 3 / 1;
+    max-width: 90vw;
+    background: linear-gradient(145deg, #f8f8f8, #e0e0e0);
+    border: 3px solid #000000;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.3),
+        inset 0 2px 5px rgba(255,255,255,0.5),
+        inset 0 -2px 5px rgba(0,0,0,0.1);
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    cursor: move;
+}
 
         .plate-preview:hover {
             transform: rotateY(10deg) rotateX(-5deg);
         }
 
         .mercosul-band {
-            background: linear-gradient(135deg, #1a4a7a 0%, #2d5aa0 50%, #1a4a7a 100%);
-            color: rgb(255, 255, 255);
-            width: 100%;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 12px;
-            letter-spacing: 2px;
-            padding: 0 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 2;
-        }
+    background: linear-gradient(135deg, #1a4a7a 0%, #2d5aa0 50%, #1a4a7a 100%);
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 26.67%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    letter-spacing: 0.133em;
+    padding: 0 1.33%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 2;
+}
 
         .mercosul-logo {
-            height: 22px;
-            margin-right: 10px;
-            margin-left: -15px;
-            display: block;
-        }
+    height: 55%;
+    margin-right: 0.667em;
+    margin-left: -1em;
+    display: block;
+}
 
         /* CORREÇÃO PRINCIPAL: Container para área branca */
         .plate-content {
-            position: absolute;
-            top: 40px; /* Começa após a barra azul */
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 110px; /* Altura total (150px) - altura da barra (40px) */
-            overflow: hidden; /* Garante que nada saia desta área */
-        }
+    position: absolute;
+    top: 26.67%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 73.33%;
+    overflow: hidden;
+}
 
         .plate-text {
-            font-family: 'FE-FONT', 'Arial Black', sans-serif;
-            font-size: 42px;
-            font-weight: 900;
-            text-align: center;
-            letter-spacing: 4px;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
-            width: auto;
-            margin: 0;
-            padding: 0;
-        }
+    font-family: 'FE-FONT', 'Arial Black', sans-serif;
+    font-size: 2.8em;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: 0.095em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
 
         .plate-emoji {
-            font-size: 40px;
-            position: absolute;
-            transition: all 0.3s ease;
-            animation: emojiFloat 3s ease-in-out infinite;
-            transform: translate(-50%, -50%);
-        }
+    font-size: 2.67em;
+    position: absolute;
+    transition: all 0.3s ease;
+    animation: emojiFloat 3s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+}
 
         @keyframes emojiFloat {
             0%, 100% { transform: translate(-50%, -50%) translateY(0) rotate(0deg); }
@@ -657,51 +659,59 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .plate-preview {
-                width: 380px;
-                height: 125px;
-            }
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .plate-preview {
+        width: 380px;
+    }
+    
+    .mercosul-band {
+        font-size: 0.75em;
+    }
+}
 
-            .plate-content {
-                height: 85px; /* 125px - 40px */
-            }
-        }
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .plate-preview {
+        width: 320px;
+    }
+    
+    .mercosul-band {
+        font-size: 0.7em;
+    }
+    
+    .plate-text {
+        font-size: 2.4em;
+    }
+    
+    .emoji-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .step-navigation {
+        flex-direction: column;
+    }
 
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .plate-preview {
-                width: 320px;
-                height: 105px;
-            }
+    .progress-bar {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
 
-            .plate-content {
-                height: 65px; /* 105px - 40px */
-            }
-            
-            .plate-text {
-                font-size: 36px;
-            }
-            
-            .emoji-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .step-navigation {
-                flex-direction: column;
-            }
-
-            .progress-bar {
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-        }
+@media (max-width: 480px) {
+    .plate-preview {
+        width: 280px;
+    }
+    
+    .plate-text {
+        font-size: 2em;
+    }
+}
 
         #countryText {
             flex: 1;
@@ -713,11 +723,11 @@
         }
 
         .brasil-flag {
-            height: 19px;
-            margin-left: 10px;
-            margin-right: -10px;
-            display: block;
-        }
+    height: 47.5%;
+    margin-left: 0.667em;
+    margin-right: -0.667em;
+    display: block;
+}
 
         .qrcode-logo {
             position: absolute;
@@ -793,9 +803,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="price-section">
-                    <div style="font-size: 1rem; color: rgba(255,255,255,0.8);">Frete grátis para todo Brasil!</div>
+            
                 </div>
             </div>
 
@@ -851,12 +859,12 @@
                     <div class="form-group">
                         <label>📏 Tamanho da fonte:</label>
                         <select id="fontSize">
-                             <option value="28">Tamanho 1</option>
-                             <option value="35">Tamanho 2</option>
-                             <option value="42" selected>Tamanho 3</option>
-                             <option value="48">Tamanho 4</option>
-                             <option value="55">Tamanho 5</option>
-                             <option value="62">Tamanho 6</option>
+    <option value="1.87em">Tamanho 1</option>
+    <option value="2.33em">Tamanho 2</option>
+    <option value="2.8em" selected>Tamanho 3</option>
+    <option value="3.2em">Tamanho 4</option>
+    <option value="3.67em">Tamanho 5</option>
+    <option value="4.13em">Tamanho 6</option>
 </select>
                     </div>
                     <div class="form-group">
@@ -1145,7 +1153,7 @@
 
             plateText.textContent = text;
             plateText.style.color = textColor;
-            plateText.style.fontSize = fontSize + 'px';
+            plateText.style.fontSize = fontSize;
             plateText.style.fontFamily = fontFamily;
 
             // Apply text position
